@@ -1,5 +1,6 @@
 import type { IconType } from "react-icons";
-import { FaLinkedinIn } from "react-icons/fa6";
+import { FaLinkedinIn, FaWallet } from "react-icons/fa6";
+import { TbCube3dSphere } from "react-icons/tb";
 import {
   Si42,
   SiC,
@@ -7,6 +8,7 @@ import {
   SiCss,
   SiDocker,
   SiEthereum,
+  SiEthers,
   SiF1,
   SiGit,
   SiGithub,
@@ -23,6 +25,7 @@ import {
   SiTailwindcss,
   SiTypescript,
   SiVercel,
+  SiWagmi,
   SiWhatsapp,
 } from "react-icons/si";
 
@@ -77,3 +80,23 @@ export const contactIcons = {
   linkedin: FaLinkedinIn,
   github: SiGithub,
 } satisfies Record<string, IconType>;
+
+/**
+ * Monochrome icon for each technology named in the dictionaries' `stack` lists.
+ * Technologies without an official mark use a generic icon (their name is still exposed as a label).
+ */
+export const techIcons: Record<string, IconType> = {
+  React: SiReact,
+  "Next.js": SiNextdotjs,
+  TypeScript: SiTypescript,
+  JavaScript: SiJavascript,
+  "Node.js": SiNodedotjs,
+  Tailwind: SiTailwindcss,
+  MQTT: SiMqtt,
+  wagmi: SiWagmi,
+  "ethers.js": SiEthers,
+  RainbowKit: FaWallet,
+  C: SiC,
+  "C++": SiCplusplus,
+  Raycasting: TbCube3dSphere,
+};

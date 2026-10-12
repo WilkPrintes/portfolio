@@ -34,9 +34,7 @@ export const pt = {
     { value: 2, suffix: "", label: "produtos Web3 em produção" },
   ],
   about: {
-    index: "01",
     title: "Sobre",
-    subtitle: "Engenharia, front-end e liderança",
     profile: [
       { label: "Cargo", value: "Tech Lead Front-end · Engenheiro de Software" },
       { label: "Foco", value: "React, TypeScript, Next.js e arquitetura front-end" },
@@ -83,9 +81,7 @@ export const pt = {
     ],
   },
   experience: {
-    index: "02",
     title: "Experiência",
-    subtitle: "Onde trabalhei e o que construí",
     highlights: "Destaques",
     stack: "Stack",
     progress: "Linha do tempo",
@@ -137,9 +133,7 @@ export const pt = {
     ] satisfies Job[],
   },
   education: {
-    index: "03",
     title: "Formação",
-    subtitle: "Base técnica e de engenharia",
     topicsLabel: "Conteúdo",
     projectsLabel: "Projetos desenvolvidos",
     items: [
@@ -174,9 +168,7 @@ export const pt = {
     ] satisfies Education[],
   },
   projects: {
-    index: "04",
     title: "Projetos",
-    subtitle: "Produtos em produção e projetos pessoais",
     live: "Ver online",
     code: "Código",
     private: "Código privado",
@@ -237,7 +229,6 @@ export const pt = {
     ] satisfies Project[],
   },
   contact: {
-    index: "05",
     title: "Vamos conversar",
     text: "Estou aberto a oportunidades como engenheiro front-end ou tech lead. Se quiser falar sobre um projeto, um time ou uma vaga, é só me chamar.",
     resume: "Baixar currículo",

@@ -14,7 +14,7 @@ const items: LogoLoopItem[] = techLogos.map(({ name, icon: Icon, color }) => ({
         color={color}
         className="transition-transform duration-300 group-hover:scale-110"
       />
-      <span className="font-mono text-sm text-foreground/80">{name}</span>
+      <span className="font-mono text-sm text-secondary">{name}</span>
     </span>
   ),
 }));

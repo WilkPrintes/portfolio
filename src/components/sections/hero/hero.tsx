@@ -89,7 +89,7 @@ export function Hero() {
               cursorClassName="text-accent"
             />
           </p>
-          <p data-hero-tagline className="mt-6 max-w-xl text-lg leading-relaxed text-foreground/80">
+          <p data-hero-tagline className="mt-6 max-w-xl text-lg leading-relaxed text-secondary">
             {t.hero.tagline}
           </p>
           <div data-hero-cta className="mt-10 flex flex-wrap items-center gap-5">

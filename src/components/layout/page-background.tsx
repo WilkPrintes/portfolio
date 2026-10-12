@@ -9,7 +9,7 @@ export function PageBackground() {
       <DotGrid
         dotSize={2.5}
         gap={22}
-        baseColor="#2c2c33"
+        baseColor="#4a4a54"
         activeColor="#ffb000"
         proximity={140}
         shockRadius={280}

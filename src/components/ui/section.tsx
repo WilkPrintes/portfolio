@@ -15,23 +15,23 @@ function SectionContainer({ className, ...props }: ComponentProps<"div">) {
 }
 
 type SectionHeaderProps = {
-  index: string;
   title: string;
-  subtitle?: string;
   className?: string;
 };
 
-function SectionHeader({ index, title, subtitle, className }: SectionHeaderProps) {
+function SectionHeader({ title, className }: SectionHeaderProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
       mm.add(MOTION_OK, () => {
-        gsap
-          .timeline({ scrollTrigger: { trigger: ref.current, start: "top 85%" } })
-          .from("[data-label]", { y: 12, autoAlpha: 0, duration: 0.5, ease: "power3.out" })
-          .from("[data-rule]", { scaleX: 0, duration: 1.1, ease: "expo.inOut" }, "-=0.2");
+        gsap.from("[data-rule]", {
+          scaleX: 0,
+          duration: 1.1,
+          ease: "expo.inOut",
+          scrollTrigger: { trigger: ref.current, start: "top 85%" },
+        });
 
         // Letters float up into place as the title scrolls in (React Bits' ScrollFloat effect).
         gsap.fromTo(
@@ -54,9 +54,6 @@ function SectionHeader({ index, title, subtitle, className }: SectionHeaderProps
 
   return (
     <div ref={ref} className={cn("mb-14", className)}>
-      <p data-label className="mb-4 font-mono text-sm text-accent">
-        {index} {subtitle && <span className="text-muted">/ {subtitle}</span>}
-      </p>
       <h2 className="overflow-hidden pb-2 text-4xl font-semibold tracking-tight text-foreground sm:text-6xl">
         <SplitChars text={title} />
       </h2>

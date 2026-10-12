@@ -22,7 +22,9 @@
   --color-ink: #0c0c0d;
   --color-panel: #141416;
   --color-line: #28282d;
-  --color-muted: #9b9ba3;
+  /* Text hierarchy: foreground for headings, secondary for body copy, muted for metadata. */
+  --color-secondary: #b4b4bd;
+  --color-muted: #8e8e97;
 
   --ease-out-expo: cubic-bezier(0.7, 0, 0.2, 1);
 }

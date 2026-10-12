@@ -36,7 +36,7 @@ export function CodeSnippet({ role, email, comment }: CodeSnippetProps) {
   ];
 
   return (
-    <Window data-code-window className="ticks shadow-2xl shadow-black/50">
+    <Window data-code-window className="ticks bg-ink shadow-2xl shadow-black/50">
       <Window.Bar>
         <Window.Title>contact.ts</Window.Title>
       </Window.Bar>

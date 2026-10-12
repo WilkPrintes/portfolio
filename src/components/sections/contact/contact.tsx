@@ -5,6 +5,7 @@ import { ButtonLink } from "@/components/ui/button-link";
 import { Magnetic } from "@/components/ui/magnetic";
 import { Section } from "@/components/ui/section";
 import { SplitChars } from "@/components/ui/split-text";
+import { contactIcons } from "@/config/logos";
 import { sectionIds, siteConfig, whatsappUrl } from "@/config/site";
 import { useLanguage } from "@/i18n";
 import { DESKTOP, gsap, MOTION_OK, useGSAP } from "@/lib/gsap";
@@ -12,6 +13,7 @@ import { CodeSnippet } from "./code-snippet";
 import { ContactBackground } from "./contact-background";
 
 const { links } = siteConfig;
+const { whatsapp: WhatsappIcon, linkedin: LinkedinIcon, github: GithubIcon } = contactIcons;
 
 export function Contact() {
   const { t } = useLanguage();
@@ -24,7 +26,7 @@ export function Contact() {
       mm.add(MOTION_OK, () => {
         gsap
           .timeline({ scrollTrigger: { trigger: ref.current, start: "top 70%" } })
-          .from("[data-contact-label]", { y: 12, autoAlpha: 0, duration: 0.5 })
+          .from("[data-contact-card]", { y: 60, autoAlpha: 0, duration: 0.9, ease: "expo.out" })
           .from(
             "[data-char]",
             {
@@ -81,15 +83,15 @@ export function Contact() {
     >
       <ContactBackground />
 
-      <div className="relative mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)] items-center gap-14 lg:grid-cols-[1.1fr_1fr]">
+      <div
+        data-contact-card
+        className="relative mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)] items-center gap-14 rounded-2xl border border-line bg-panel p-6 shadow-2xl shadow-black/60 sm:p-10 lg:grid-cols-[1.1fr_1fr] lg:p-14"
+      >
         <div className="text-center lg:text-left">
-          <p data-contact-label className="font-mono text-sm text-accent">
-            {contact.index} <span className="text-muted">/ {t.nav.contact}</span>
-          </p>
-          <h2 className="mt-4 text-5xl font-semibold tracking-tight text-foreground sm:text-7xl">
+          <h2 className="overflow-hidden pb-2 text-4xl font-semibold tracking-tight text-foreground sm:text-6xl">
             <SplitChars text={contact.title} />
           </h2>
-          <p data-contact-text className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-foreground/80 lg:mx-0">
+          <p data-contact-text className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-secondary lg:mx-0">
             {contact.text}
           </p>
           <a
@@ -101,17 +103,34 @@ export function Contact() {
           </a>
           <div data-contact-actions className="mt-10 flex flex-wrap justify-center gap-4 lg:justify-start">
             <Magnetic>
-              <ButtonLink href={whatsappUrl(contact.whatsappMessage)} external icon="↗">
+              <ButtonLink
+                href={whatsappUrl(contact.whatsappMessage)}
+                external
+                icon="↗"
+                leadingIcon={<WhatsappIcon className="size-4" />}
+              >
                 WhatsApp
               </ButtonLink>
             </Magnetic>
             <Magnetic>
-              <ButtonLink href={links.linkedin} external variant="secondary" icon="↗">
+              <ButtonLink
+                href={links.linkedin}
+                external
+                variant="secondary"
+                icon="↗"
+                leadingIcon={<LinkedinIcon className="size-4" />}
+              >
                 LinkedIn
               </ButtonLink>
             </Magnetic>
             <Magnetic>
-              <ButtonLink href={links.github} external variant="secondary" icon="↗">
+              <ButtonLink
+                href={links.github}
+                external
+                variant="secondary"
+                icon="↗"
+                leadingIcon={<GithubIcon className="size-4" />}
+              >
                 GitHub
               </ButtonLink>
             </Magnetic>

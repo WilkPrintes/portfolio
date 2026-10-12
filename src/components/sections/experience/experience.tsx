@@ -53,7 +53,7 @@ export function Experience() {
               "-=0.6",
             )
             .from(
-              item.querySelectorAll("[data-job-tag]"),
+              item.querySelectorAll("[data-tech-icon]"),
               { y: 10, autoAlpha: 0, scale: 0.8, stagger: 0.04, duration: 0.4, ease: "back.out(2)" },
               "-=0.3",
             );
@@ -87,7 +87,7 @@ export function Experience() {
       </Backdrop>
 
       <Section.Container ref={ref}>
-        <Section.Header index={experience.index} title={experience.title} subtitle={experience.subtitle} />
+        <Section.Header title={experience.title} />
 
         <div className="grid gap-12 lg:grid-cols-[260px_1fr]">
           <div data-experience-nav className="contents">

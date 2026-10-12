@@ -1,7 +1,7 @@
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { Card } from "@/components/ui/card";
 import { Glare } from "@/components/ui/glare";
-import { Tag, TagList } from "@/components/ui/tag";
+import { TechStack } from "@/components/ui/tech-stack";
 import { companyLogos } from "@/config/logos";
 import type { Job } from "@/i18n";
 import { cn } from "@/lib/utils";
@@ -49,19 +49,19 @@ export function JobCard({ job, highlightsLabel, stackLabel }: JobCardProps) {
       <Card data-job-card featured={job.featured} spotlight className={cn("sm:p-8", !job.featured && "bg-panel/50")}>
         <JobHeader job={job} />
 
-        <Card.Title className={cn("mt-6", job.featured ? "sm:text-3xl" : "text-xl")}>{job.role}</Card.Title>
+        <Card.Title className={cn("mt-6", job.featured && "sm:text-3xl")}>{job.role}</Card.Title>
         {job.team && (
           <p className="relative mt-2 inline-flex items-center gap-2 rounded border border-line px-2 py-0.5 font-mono text-xs text-accent-soft">
             <span aria-hidden="true">◆</span>
             {job.team}
           </p>
         )}
-        <p className="relative mt-4 leading-relaxed text-foreground/85">{job.summary}</p>
+        <p className="relative mt-4 leading-relaxed text-secondary">{job.summary}</p>
 
         <Card.Section label={highlightsLabel} className="mt-6">
           <ul className="space-y-2.5">
             {job.highlights.map((highlight) => (
-              <li key={highlight} data-job-highlight className="flex gap-3 leading-relaxed text-foreground/70">
+              <li key={highlight} data-job-highlight className="flex gap-3 leading-relaxed text-secondary">
                 <span aria-hidden="true" className="mt-[0.7em] h-px w-3 shrink-0 bg-accent" />
                 {highlight}
               </li>
@@ -69,13 +69,7 @@ export function JobCard({ job, highlightsLabel, stackLabel }: JobCardProps) {
           </ul>
         </Card.Section>
 
-        <TagList aria-label={stackLabel} className="relative mt-6">
-          {job.stack.map((tech) => (
-            <Tag key={tech} data-job-tag>
-              {tech}
-            </Tag>
-          ))}
-        </TagList>
+        <TechStack items={job.stack} label={stackLabel} className="mt-7" />
       </Card>
     </Glare>
   );

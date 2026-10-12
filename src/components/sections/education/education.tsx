@@ -66,7 +66,7 @@ export function Education() {
       </Backdrop>
 
       <Section.Container ref={ref}>
-        <Section.Header index={education.index} title={education.title} subtitle={education.subtitle} />
+        <Section.Header title={education.title} />
         <StudyTimeline items={education.items} from={firstYear} to={lastYear} />
         <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[3fr_2fr]">
           {education.items.map((item) => (
