@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0c0c0d;
+  --foreground: #ececee;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Palette: graphite neutrals with a single amber accent. */
+@theme {
+  --color-accent: #ffb000;
+  --color-accent-soft: #ffcf66;
+  --color-alert: #ff5a4f;
+  --color-ok: #5ee08a;
+  --color-ink: #0c0c0d;
+  --color-panel: #141416;
+  --color-line: #28282d;
+  --color-muted: #9b9ba3;
+
+  --ease-out-expo: cubic-bezier(0.7, 0, 0.2, 1);
+}
+
+body {
+  background-color: var(--background);
+  /* Subtle drafting-table grid. */
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: rgb(255 176 0 / 0.3);
+}
+
+/* Corner ticks, as in technical drawings. */
+.ticks {
+  --tick: linear-gradient(var(--color-accent), var(--color-accent));
+  /* Longhand properties so the element keeps its own background-color. */
+  background-image:
+    var(--tick), var(--tick), var(--tick), var(--tick), var(--tick), var(--tick), var(--tick), var(--tick);
+  background-position:
+    top left,
+    top left,
+    top right,
+    top right,
+    bottom left,
+    bottom left,
+    bottom right,
+    bottom right;
+  background-size:
+    12px 1px,
+    1px 12px,
+    12px 1px,
+    1px 12px,
+    12px 1px,
+    1px 12px,
+    12px 1px,
+    1px 12px;
+  background-repeat: no-repeat;
+}
+
+.blink {
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blink {
+    animation: none;
+  }
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="256" height="256">
+  <title>Wilk Printes</title>
+  <g fill="none" stroke="#ffb000" stroke-width="2" stroke-linecap="square" opacity="0.55">
+      <path d="M10 17V10H17"/><path d="M47 10H54V17"/><path d="M54 47V54H47"/><path d="M17 54H10V47"/>
+    </g>
+    <path d="M16 21L23.5 42L32 28L40.5 42L48 21" fill="none" stroke="#ffb000" stroke-width="5.5" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="10"/>
+    <rect x="43" y="45" width="7" height="3.5" fill="#ececee"/>
+</svg>
