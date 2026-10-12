@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import { Backdrop } from "@/components/ui/backdrop";
 import { Section } from "@/components/ui/section";
 import { sectionIds } from "@/config/site";
 import { useLanguage } from "@/i18n";
@@ -60,13 +59,8 @@ export function Education() {
 
   return (
     <Section id={sectionIds.education} className="overflow-hidden">
-      <Backdrop>
-        <Backdrop.Orbits />
-        <Backdrop.Watermark side="left">03</Backdrop.Watermark>
-      </Backdrop>
-
       <Section.Container ref={ref}>
-        <Section.Header index={education.index} title={education.title} subtitle={education.subtitle} />
+        <Section.Header title={education.title} />
         <StudyTimeline items={education.items} from={firstYear} to={lastYear} />
         <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[3fr_2fr]">
           {education.items.map((item) => (

@@ -1,6 +1,5 @@
 "use client";
 
-import { Backdrop } from "@/components/ui/backdrop";
 import { Section } from "@/components/ui/section";
 import { sectionIds } from "@/config/site";
 import { useLanguage } from "@/i18n";
@@ -16,12 +15,8 @@ export function About() {
 
   return (
     <Section id={sectionIds.about}>
-      <Backdrop>
-        <Backdrop.Watermark>01</Backdrop.Watermark>
-      </Backdrop>
-
       <Section.Container>
-        <Section.Header index={about.index} title={about.title} subtitle={about.subtitle} />
+        <Section.Header title={about.title} />
         <div className="grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[7fr_5fr]">
           <Bio paragraphs={about.bio} />
           <ProfileCard rows={about.profile} />

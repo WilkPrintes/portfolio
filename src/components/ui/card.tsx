@@ -42,11 +42,16 @@ function CardEyebrow({ className, ...props }: ComponentProps<"p">) {
 }
 
 function CardTitle({ className, ...props }: ComponentProps<"h3">) {
-  return <h3 className={cn("relative text-2xl font-semibold tracking-tight text-foreground", className)} {...props} />;
+  return (
+    <h3
+      className={cn("relative text-xl font-semibold tracking-tight text-foreground sm:text-2xl", className)}
+      {...props}
+    />
+  );
 }
 
 function CardDescription({ className, ...props }: ComponentProps<"p">) {
-  return <p className={cn("relative mt-3 leading-relaxed text-muted", className)} {...props} />;
+  return <p className={cn("relative mt-3 leading-relaxed text-secondary", className)} {...props} />;
 }
 
 /** Labelled block inside a card, e.g. "Highlights" followed by a list. */

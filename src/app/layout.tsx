@@ -3,7 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { BackToTop } from "@/components/layout/back-to-top";
 import { ContactDock } from "@/components/layout/contact-dock";
 import { MainContent } from "@/components/layout/main-content";
-import { PageBackground } from "@/components/layout/page-background";
+import { Grain } from "@/components/layout/grain";
+import { MazeBackground } from "@/components/layout/maze-background";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import ClickSpark from "@/components/react-bits/click-spark";
@@ -34,7 +35,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <noscript>
           <style>{"[data-hero-content]{visibility:visible!important}"}</style>
         </noscript>
-        <PageBackground />
+        <MazeBackground />
+        <Grain />
         <Providers>
           <Terminal />
           <SiteHeader />

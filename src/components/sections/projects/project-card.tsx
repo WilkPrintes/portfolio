@@ -4,6 +4,7 @@ import { useRef, type ComponentProps } from "react";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { Card } from "@/components/ui/card";
 import { Glare } from "@/components/ui/glare";
+import { TechStack } from "@/components/ui/tech-stack";
 import { projectLogos } from "@/config/logos";
 import { useTilt } from "@/hooks/use-tilt";
 import type { Project } from "@/i18n";
@@ -15,7 +16,7 @@ type ProjectCardProps = {
   project: Project;
   index: number;
   total: number;
-  labels: { live: string; code: string; private: string };
+  labels: { live: string; code: string; private: string; stack: string };
 };
 
 export function ProjectCard({ project, index, total, labels }: ProjectCardProps) {
@@ -49,7 +50,7 @@ export function ProjectCard({ project, index, total, labels }: ProjectCardProps)
           <Card.Eyebrow className="mt-5 text-accent-soft">{project.kind}</Card.Eyebrow>
           <Card.Title className="mt-1">{project.name}</Card.Title>
           <Card.Description className="flex-1">{project.description}</Card.Description>
-          <p className="relative mt-4 font-mono text-xs text-foreground/60">{project.stack.join(" · ")}</p>
+          <TechStack items={project.stack} label={labels.stack} className="mt-5" />
           <Card.Footer>
             {project.url && (
               <a

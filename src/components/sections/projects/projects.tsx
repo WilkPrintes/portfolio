@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import { Backdrop } from "@/components/ui/backdrop";
 import { Section } from "@/components/ui/section";
 import { sectionIds, siteConfig } from "@/config/site";
 import { useLanguage } from "@/i18n";
@@ -105,13 +104,9 @@ export function Projects() {
 
   return (
     <Section ref={sectionRef} id={sectionIds.projects} className="overflow-hidden py-0">
-      <Backdrop>
-        <Backdrop.Watermark>04</Backdrop.Watermark>
-      </Backdrop>
-
       <div data-projects-pin className="flex flex-col justify-center py-28 lg:h-svh lg:py-0 lg:pt-16">
         <Section.Container>
-          <Section.Header index={projects.index} title={projects.title} subtitle={projects.subtitle} />
+          <Section.Header title={projects.title} />
         </Section.Container>
 
         <div
@@ -124,7 +119,12 @@ export function Projects() {
               project={project}
               index={index}
               total={total}
-              labels={{ live: projects.live, code: projects.code, private: projects.private }}
+              labels={{
+                live: projects.live,
+                code: projects.code,
+                private: projects.private,
+                stack: t.experience.stack,
+              }}
             />
           ))}
           <ProjectsMoreCard href={siteConfig.links.github}>{projects.seeAll} ↗</ProjectsMoreCard>

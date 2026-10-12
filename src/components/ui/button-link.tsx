@@ -6,6 +6,8 @@ type ButtonLinkProps = Omit<ComponentProps<"a">, "children"> & {
   children: string;
   variant?: "primary" | "secondary";
   icon?: ReactNode;
+  /** Optional brand or context icon shown before the label. */
+  leadingIcon?: ReactNode;
   external?: boolean;
 };
 
@@ -24,6 +26,7 @@ export function ButtonLink({
   children,
   variant = "primary",
   icon = "→",
+  leadingIcon,
   external,
   className,
   ...props
@@ -48,7 +51,12 @@ export function ButtonLink({
         aria-hidden="true"
         className="absolute inset-y-0 -left-1/2 w-1/3 -skew-x-12 bg-linear-to-r from-transparent via-white/40 to-transparent opacity-0 transition-[translate,opacity] duration-700 group-hover:translate-x-[420%] group-hover:opacity-100"
       />
-      <RollText className="relative">{children}</RollText>
+      {leadingIcon && (
+        <span aria-hidden="true" className="relative inline-flex">
+          {leadingIcon}
+        </span>
+      )}
+      <RollText className={cn("relative", leadingIcon && "-ml-1")}>{children}</RollText>
       <span aria-hidden="true" className="relative inline-flex overflow-hidden">
         <span className="block transition-transform duration-500 ease-out-expo group-hover:translate-x-full">
           {icon}

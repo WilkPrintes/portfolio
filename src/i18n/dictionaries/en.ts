@@ -34,9 +34,7 @@ export const en: Dictionary = {
     { value: 2, suffix: "", label: "Web3 products in production" },
   ],
   about: {
-    index: "01",
     title: "About",
-    subtitle: "Engineering, front-end and leadership",
     profile: [
       { label: "Role", value: "Front-end Tech Lead · Software Engineer" },
       { label: "Focus", value: "React, TypeScript, Next.js and front-end architecture" },
@@ -83,9 +81,7 @@ export const en: Dictionary = {
     ],
   },
   experience: {
-    index: "02",
     title: "Experience",
-    subtitle: "Where I've worked and what I've built",
     highlights: "Highlights",
     stack: "Stack",
     progress: "Timeline",
@@ -137,9 +133,7 @@ export const en: Dictionary = {
     ] satisfies Job[],
   },
   education: {
-    index: "03",
     title: "Education",
-    subtitle: "Technical and engineering foundation",
     topicsLabel: "Curriculum",
     projectsLabel: "Projects built",
     items: [
@@ -174,9 +168,7 @@ export const en: Dictionary = {
     ] satisfies Education[],
   },
   projects: {
-    index: "04",
     title: "Projects",
-    subtitle: "Products in production and personal projects",
     live: "View live",
     code: "Code",
     private: "Private code",
@@ -237,12 +229,21 @@ export const en: Dictionary = {
     ] satisfies Project[],
   },
   contact: {
-    index: "05",
     title: "Let's talk",
     text: "I'm open to opportunities as a front-end engineer or tech lead. If you want to talk about a project, a team or a role, just reach out.",
     resume: "Download resume",
     codeComment: "// → next step: a conversation",
-    location: "Santarém, PA · Brazil",
+    location: "Brazil",
+    localTime: "local time",
+    primary: "Most direct",
+    copy: "Copy",
+    copied: "Copied!",
+    channels: {
+      whatsapp: "WhatsApp",
+      email: "Email",
+      linkedin: "LinkedIn",
+      github: "GitHub",
+    },
     whatsappMessage: "Hi Wilk! I saw your portfolio and would like to talk.",
   },
   dock: {

@@ -66,7 +66,7 @@ export function Principles({ items }: { items: Principle[] }) {
               <span data-principle-index className="font-mono text-sm text-accent">
                 {pad(index + 1)}
               </span>
-              <Card.Title data-principle-title className="mt-3 text-xl">
+              <Card.Title data-principle-title className="mt-3">
                 {principle.title}
               </Card.Title>
               <Card.Description data-principle-text className="mt-2">

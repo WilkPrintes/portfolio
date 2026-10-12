@@ -17,19 +17,17 @@ export function EducationCard({ item, topicsLabel, projectsLabel }: EducationCar
       )}
 
       <Card.Header>
-        <Card.Eyebrow data-education-place className="text-sm">
-          {item.place}
-        </Card.Eyebrow>
+        <Card.Eyebrow data-education-place>{item.place}</Card.Eyebrow>
         <p className="font-mono text-xs text-muted">{item.period}</p>
       </Card.Header>
-      <Card.Title className={cn("mt-3", item.featured && "text-3xl")}>{item.title}</Card.Title>
-      <Card.Description className="mt-4 text-foreground/80">{item.description}</Card.Description>
+      <Card.Title className={cn("mt-3", item.featured && "sm:text-3xl")}>{item.title}</Card.Title>
+      <Card.Description className="mt-4">{item.description}</Card.Description>
 
       {item.topics.length > 0 && (
         <Card.Section label={topicsLabel}>
           <ul className="grid gap-2 sm:grid-cols-2">
             {item.topics.map((topic) => (
-              <li key={topic} data-education-topic className="flex items-center gap-3 text-foreground/80">
+              <li key={topic} data-education-topic className="flex items-center gap-3 text-secondary">
                 <span aria-hidden="true" className="h-px w-3 bg-accent" />
                 {topic}
               </li>
