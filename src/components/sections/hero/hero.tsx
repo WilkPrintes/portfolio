@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Magnetic } from "@/components/ui/magnetic";
+import TextType from "@/components/react-bits/text-type";
 import { SplitChars } from "@/components/ui/split-text";
 import { sectionIds } from "@/config/site";
 import { useLanguage } from "@/i18n";
@@ -12,7 +13,7 @@ import { HeroMetrics } from "./hero-metrics";
 import { RaycastScene } from "./raycast-scene";
 
 export function Hero() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
   const ref = useRef<HTMLElement>(null);
   const minimapRef = useRef<HTMLCanvasElement>(null);
   const statsRef = useRef<HTMLSpanElement>(null);
@@ -24,18 +25,12 @@ export function Hero() {
         gsap.set("[data-hero-content]", { autoAlpha: 1 });
         if (!context.conditions?.motion) return;
 
-        const roleLength = ref.current?.querySelector("[data-hero-role]")?.textContent?.length ?? 30;
-
         gsap
           .timeline({ defaults: { ease: "expo.out" } })
           .from("[data-hero-scene]", { autoAlpha: 0, scale: 1.12, duration: 1.8, ease: "power2.out" })
           .from("[data-hero-greeting]", { y: 16, autoAlpha: 0, duration: 0.7 }, 0.3)
           .from("[data-hero-name] [data-char]", { yPercent: 110, autoAlpha: 0, stagger: 0.03, duration: 1 }, 0.4)
-          .from(
-            "[data-hero-role]",
-            { width: 0, duration: roleLength * 0.035, ease: `steps(${roleLength})`, clearProps: "width" },
-            0.9,
-          )
+          .from("[data-hero-role]", { autoAlpha: 0, x: -10, duration: 0.6 }, 0.9)
           .from("[data-hero-tagline]", { y: 20, autoAlpha: 0, duration: 0.9 }, 1.1)
           .from("[data-hero-cta] > *", { y: 16, autoAlpha: 0, stagger: 0.1, duration: 0.8 }, 1.25)
           .from(
@@ -73,12 +68,26 @@ export function Hero() {
           <h1 data-hero-name className="text-5xl font-semibold tracking-tight text-foreground sm:text-7xl lg:text-8xl">
             <SplitChars text={t.hero.name} />
           </h1>
-          <p className="mt-5 font-mono text-[15px] whitespace-nowrap text-accent-soft sm:text-2xl">
-            <span className="text-muted">&gt; </span>
-            <span data-hero-role className="inline-block overflow-hidden align-bottom whitespace-nowrap">
-              {t.hero.role}
+          <p
+            data-hero-role
+            aria-label={t.hero.role}
+            className="mt-5 min-h-[1.5em] font-mono text-[15px] whitespace-nowrap text-accent-soft sm:text-2xl"
+          >
+            <span aria-hidden="true" className="text-muted">
+              &gt;{" "}
             </span>
-            <span className="blink text-accent">▍</span>
+            <TextType
+              key={locale}
+              aria-hidden="true"
+              as="span"
+              text={t.hero.roles}
+              initialDelay={1200}
+              typingSpeed={45}
+              deletingSpeed={25}
+              pauseDuration={2600}
+              cursorCharacter="▍"
+              cursorClassName="text-accent"
+            />
           </p>
           <p data-hero-tagline className="mt-6 max-w-xl text-lg leading-relaxed text-foreground/80">
             {t.hero.tagline}

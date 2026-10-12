@@ -1,43 +1,79 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Backdrop } from "@/components/ui/backdrop";
 import { Section } from "@/components/ui/section";
-import { Timeline } from "@/components/ui/timeline";
 import { sectionIds } from "@/config/site";
 import { useLanguage } from "@/i18n";
-import { gsap, MOTION_OK, useGSAP } from "@/lib/gsap";
+import { DESKTOP, gsap, MOTION_OK, ScrollTrigger, useGSAP } from "@/lib/gsap";
+import { cn } from "@/lib/utils";
+import { ExperienceNav } from "./experience-nav";
 import { JobCard } from "./job-card";
 
 export function Experience() {
   const { t } = useLanguage();
   const { experience } = t;
   const ref = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useGSAP(
     () => {
+      const items = gsap.utils.toArray<HTMLElement>("[data-experience-item]");
+
+      // The job crossing the middle of the screen becomes the active one.
+      items.forEach((item, index) => {
+        ScrollTrigger.create({
+          trigger: item,
+          start: "top 55%",
+          end: "bottom 55%",
+          onToggle: ({ isActive }) => isActive && setActiveIndex(index),
+        });
+      });
+
       const mm = gsap.matchMedia();
+
       mm.add(MOTION_OK, () => {
-        gsap.utils.toArray<HTMLElement>("[data-experience-item]").forEach((item) => {
+        items.forEach((item) => {
           gsap
-            .timeline({ scrollTrigger: { trigger: item, start: "top 80%" } })
-            .from(item.querySelector("[data-timeline-dot]"), { scale: 0, duration: 0.5, ease: "back.out(3)" })
+            .timeline({ scrollTrigger: { trigger: item, start: "top 82%" } })
+            .from(item.querySelector("[data-job-card]"), {
+              clipPath: "inset(0% 0% 100% 0%)",
+              y: 60,
+              duration: 1.1,
+              ease: "expo.out",
+            })
             .from(
-              item.querySelector("[data-job-meta]"),
-              { x: -24, autoAlpha: 0, duration: 0.7, ease: "power3.out" },
-              "-=0.3",
+              item.querySelector("[data-job-logo]"),
+              { scale: 0, rotate: -20, duration: 0.6, ease: "back.out(2.5)" },
+              "-=0.8",
             )
-            .from(item.querySelector("[data-job-card]"), { y: 40, autoAlpha: 0, duration: 0.9, ease: "expo.out" }, "<")
             .from(
               item.querySelectorAll("[data-job-highlight]"),
-              { x: 16, autoAlpha: 0, stagger: 0.07, duration: 0.5, ease: "power2.out" },
-              "-=0.5",
+              { x: 24, autoAlpha: 0, stagger: 0.08, duration: 0.55, ease: "power3.out" },
+              "-=0.6",
             )
             .from(
               item.querySelectorAll("[data-job-tag]"),
-              { y: 8, autoAlpha: 0, stagger: 0.04, duration: 0.35 },
+              { y: 10, autoAlpha: 0, scale: 0.8, stagger: 0.04, duration: 0.4, ease: "back.out(2)" },
               "-=0.3",
             );
+        });
+      });
+
+      // Desktop: the sticky rail fills up as the reader moves through the jobs.
+      mm.add(DESKTOP, () => {
+        gsap.to("[data-experience-progress]", {
+          scaleY: 1,
+          ease: "none",
+          scrollTrigger: { trigger: "[data-experience-list]", start: "top 55%", end: "bottom 55%", scrub: 0.3 },
+        });
+        gsap.from("[data-experience-nav] li", {
+          x: -20,
+          autoAlpha: 0,
+          stagger: 0.1,
+          duration: 0.6,
+          ease: "power3.out",
+          scrollTrigger: { trigger: "[data-experience-list]", start: "top 80%" },
         });
       });
     },
@@ -47,20 +83,32 @@ export function Experience() {
   return (
     <Section id={sectionIds.experience}>
       <Backdrop>
-        <Backdrop.Dots />
-        <Backdrop.Glows side="left" />
         <Backdrop.Watermark side="left">02</Backdrop.Watermark>
       </Backdrop>
 
       <Section.Container ref={ref}>
         <Section.Header index={experience.index} title={experience.title} subtitle={experience.subtitle} />
-        <Timeline>
-          {experience.items.map((job) => (
-            <Timeline.Item key={job.company} data-experience-item highlighted={job.featured}>
-              <JobCard job={job} highlightsLabel={experience.highlights} stackLabel={experience.stack} />
-            </Timeline.Item>
-          ))}
-        </Timeline>
+
+        <div className="grid gap-12 lg:grid-cols-[260px_1fr]">
+          <div data-experience-nav className="contents">
+            <ExperienceNav jobs={experience.items} activeIndex={activeIndex} label={experience.progress} />
+          </div>
+
+          <ol data-experience-list className="space-y-10">
+            {experience.items.map((job, index) => (
+              <li
+                key={job.company}
+                data-experience-item={index}
+                className={cn(
+                  "transition-[opacity,scale] duration-500",
+                  index === activeIndex ? "lg:opacity-100" : "lg:scale-[0.98] lg:opacity-40",
+                )}
+              >
+                <JobCard job={job} highlightsLabel={experience.highlights} stackLabel={experience.stack} />
+              </li>
+            ))}
+          </ol>
+        </div>
       </Section.Container>
     </Section>
   );

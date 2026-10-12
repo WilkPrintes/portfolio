@@ -3,7 +3,7 @@
 import { useRef, type ComponentProps } from "react";
 import { gsap, MOTION_OK, useGSAP } from "@/lib/gsap";
 import { cn } from "@/lib/utils";
-import { SplitWords } from "./split-text";
+import { SplitChars } from "./split-text";
 
 /** Page section. Children can include a `<Backdrop />`, which sits behind the content. */
 function SectionRoot({ className, ...props }: ComponentProps<"section">) {
@@ -31,8 +31,22 @@ function SectionHeader({ index, title, subtitle, className }: SectionHeaderProps
         gsap
           .timeline({ scrollTrigger: { trigger: ref.current, start: "top 85%" } })
           .from("[data-label]", { y: 12, autoAlpha: 0, duration: 0.5, ease: "power3.out" })
-          .from("[data-word]", { yPercent: 110, stagger: 0.06, duration: 0.9, ease: "expo.out" }, "-=0.3")
-          .from("[data-rule]", { scaleX: 0, duration: 1.1, ease: "expo.inOut" }, "-=0.7");
+          .from("[data-rule]", { scaleX: 0, duration: 1.1, ease: "expo.inOut" }, "-=0.2");
+
+        // Letters float up into place as the title scrolls in (React Bits' ScrollFloat effect).
+        gsap.fromTo(
+          "[data-char]",
+          { opacity: 0, yPercent: 120, scaleY: 2.3, scaleX: 0.7, transformOrigin: "50% 0%" },
+          {
+            opacity: 1,
+            yPercent: 0,
+            scaleY: 1,
+            scaleX: 1,
+            stagger: 0.03,
+            ease: "back.inOut(2)",
+            scrollTrigger: { trigger: ref.current, start: "top bottom-=5%", end: "top 55%", scrub: true },
+          },
+        );
       });
     },
     { scope: ref },
@@ -43,8 +57,8 @@ function SectionHeader({ index, title, subtitle, className }: SectionHeaderProps
       <p data-label className="mb-4 font-mono text-sm text-accent">
         {index} {subtitle && <span className="text-muted">/ {subtitle}</span>}
       </p>
-      <h2 className="text-4xl font-semibold tracking-tight text-foreground sm:text-6xl">
-        <SplitWords text={title} />
+      <h2 className="overflow-hidden pb-2 text-4xl font-semibold tracking-tight text-foreground sm:text-6xl">
+        <SplitChars text={title} />
       </h2>
       <div data-rule className="mt-6 h-px origin-left bg-linear-to-r from-accent via-line to-transparent" />
     </div>

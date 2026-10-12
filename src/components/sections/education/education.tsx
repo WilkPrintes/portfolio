@@ -61,9 +61,7 @@ export function Education() {
   return (
     <Section id={sectionIds.education} className="overflow-hidden">
       <Backdrop>
-        <Backdrop.Dots />
         <Backdrop.Orbits />
-        <Backdrop.Glows side="left" />
         <Backdrop.Watermark side="left">03</Backdrop.Watermark>
       </Backdrop>
 

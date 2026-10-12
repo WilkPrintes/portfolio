@@ -52,38 +52,6 @@ function BackdropRoot({ children, className }: { children: ReactNode; className?
   );
 }
 
-function BackdropDots() {
-  return (
-    <div className="absolute inset-0 bg-[radial-gradient(rgb(255_255_255/0.08)_1px,transparent_1px)] mask-[radial-gradient(ellipse_70%_60%_at_50%_40%,black,transparent)] bg-size-[22px_22px]" />
-  );
-}
-
-function BackdropGlows({ side = "right" }: { side?: Side }) {
-  const primary = useRef<HTMLDivElement>(null);
-  const secondary = useRef<HTMLDivElement>(null);
-  useParallax(primary, 30, -40);
-  useParallax(secondary, -20, 35);
-
-  return (
-    <>
-      <div
-        ref={primary}
-        className={cn(
-          "absolute top-[10%] size-[560px] rounded-full bg-accent/8 blur-[120px]",
-          side === "right" ? "-right-40" : "-left-40",
-        )}
-      />
-      <div
-        ref={secondary}
-        className={cn(
-          "absolute bottom-0 size-[460px] rounded-full bg-[#7c8cff]/6 blur-[120px]",
-          side === "right" ? "-left-32" : "-right-32",
-        )}
-      />
-    </>
-  );
-}
-
 /** Oversized outlined number behind the section, e.g. "01". */
 function BackdropWatermark({ children, side = "right" }: { children: string; side?: Side }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -99,49 +67,6 @@ function BackdropWatermark({ children, side = "right" }: { children: string; sid
     >
       {children}
     </span>
-  );
-}
-
-/** Drafting-table grid with a light sweep and measurement annotations. */
-function BackdropBlueprint() {
-  const sweep = useRef<HTMLDivElement>(null);
-  useLoopWhileVisible(sweep, () => [
-    gsap.fromTo(
-      sweep.current,
-      { xPercent: -120 },
-      { xPercent: 420, duration: 7, ease: "power1.inOut", repeat: -1, repeatDelay: 1.5 },
-    ),
-  ]);
-
-  const mask = "mask-[radial-gradient(ellipse_80%_70%_at_50%_50%,black,transparent)]";
-
-  return (
-    <>
-      <div
-        className={cn(
-          "absolute inset-0 bg-[linear-gradient(rgb(255_255_255/0.035)_1px,transparent_1px),linear-gradient(90deg,rgb(255_255_255/0.035)_1px,transparent_1px)] bg-size-[24px_24px]",
-          mask,
-        )}
-      />
-      <div
-        className={cn(
-          "absolute inset-0 bg-[linear-gradient(rgb(255_176_0/0.09)_1px,transparent_1px),linear-gradient(90deg,rgb(255_176_0/0.09)_1px,transparent_1px)] bg-size-[120px_120px]",
-          mask,
-        )}
-      />
-      <div
-        ref={sweep}
-        className="absolute inset-y-0 left-0 w-1/4 -skew-x-12 bg-linear-to-r from-transparent via-accent/7 to-transparent"
-      />
-      <div className="absolute top-[18%] left-[6%] hidden font-mono text-[10px] text-accent/40 lg:block">
-        <span className="block h-px w-40 bg-accent/30" />
-        <span className="mt-1 block">x: 0 → 100vw</span>
-      </div>
-      <div className="absolute right-[5%] bottom-[14%] hidden font-mono text-[10px] text-accent/40 lg:block">
-        <span className="ml-auto block h-24 w-px bg-accent/30" />
-        <span className="mt-1 block">scroll: pin + scrub</span>
-      </div>
-    </>
   );
 }
 
@@ -200,9 +125,6 @@ function BackdropOrbits({ side = "right" }: { side?: Side }) {
 }
 
 export const Backdrop = Object.assign(BackdropRoot, {
-  Dots: BackdropDots,
-  Glows: BackdropGlows,
   Watermark: BackdropWatermark,
-  Blueprint: BackdropBlueprint,
   Orbits: BackdropOrbits,
 });

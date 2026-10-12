@@ -1,5 +1,8 @@
+import { BrandLogo } from "@/components/ui/brand-logo";
 import { Card } from "@/components/ui/card";
+import { Glare } from "@/components/ui/glare";
 import { Tag, TagList } from "@/components/ui/tag";
+import { companyLogos } from "@/config/logos";
 import type { Job } from "@/i18n";
 import { cn } from "@/lib/utils";
 
@@ -9,36 +12,44 @@ type JobCardProps = {
   stackLabel: string;
 };
 
-function JobMeta({ job }: { job: Job }) {
+function JobHeader({ job }: { job: Job }) {
+  const logo = companyLogos[job.company];
+  const company = job.url ? (
+    <a href={job.url} target="_blank" rel="noreferrer" className="transition-colors hover:text-accent">
+      {job.company} ↗
+    </a>
+  ) : (
+    job.company
+  );
+
   return (
-    <div data-job-meta>
-      <p className="font-mono text-sm text-accent">{job.period}</p>
-      <p className="mt-1 text-xl font-semibold text-foreground">
-        {job.url ? (
-          <a href={job.url} target="_blank" rel="noreferrer" className="transition-colors hover:text-accent">
-            {job.company} ↗
-          </a>
-        ) : (
-          job.company
-        )}
-      </p>
-      {job.product && <p className="mt-1 font-mono text-xs text-muted">{job.product}</p>}
+    <div className="relative flex items-center gap-4">
+      {logo && (
+        <span
+          data-job-logo
+          className="flex size-14 shrink-0 items-center justify-center rounded-lg border border-line bg-ink p-2"
+        >
+          <BrandLogo logo={logo} alt={job.company} size={36} />
+        </span>
+      )}
+      <div className="min-w-0">
+        <p className="text-lg font-semibold text-foreground">{company}</p>
+        <p className="font-mono text-xs text-muted">
+          <span className="text-accent">{job.period}</span>
+          {job.product && <> · {job.product}</>}
+        </p>
+      </div>
     </div>
   );
 }
 
 export function JobCard({ job, highlightsLabel, stackLabel }: JobCardProps) {
   return (
-    <div className="grid gap-5 lg:grid-cols-[240px_1fr] lg:gap-10">
-      <JobMeta job={job} />
+    <Glare>
+      <Card data-job-card featured={job.featured} spotlight className={cn("sm:p-8", !job.featured && "bg-panel/50")}>
+        <JobHeader job={job} />
 
-      <Card
-        data-job-card
-        featured={job.featured}
-        spotlight={job.featured}
-        className={cn("sm:p-8", !job.featured && "bg-panel/50")}
-      >
-        <Card.Title className={cn(job.featured ? "sm:text-3xl" : "text-xl")}>{job.role}</Card.Title>
+        <Card.Title className={cn("mt-6", job.featured ? "sm:text-3xl" : "text-xl")}>{job.role}</Card.Title>
         {job.team && (
           <p className="relative mt-2 inline-flex items-center gap-2 rounded border border-line px-2 py-0.5 font-mono text-xs text-accent-soft">
             <span aria-hidden="true">◆</span>
@@ -66,6 +77,6 @@ export function JobCard({ job, highlightsLabel, stackLabel }: JobCardProps) {
           ))}
         </TagList>
       </Card>
-    </div>
+    </Glare>
   );
 }

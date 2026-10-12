@@ -33,11 +33,11 @@ src/
 ├── app/                    # Routes, root layout, metadata, icons and global styles
 ├── components/
 │   ├── brand/              # Logo
-│   ├── layout/             # Site header (navbar), footer, back-to-top, <main> wrapper
+│   ├── layout/             # Site header (navbar), contact dock, footer, back-to-top, <main> wrapper
 │   ├── sections/           # One folder per page section (hero, about, experience, ...)
 │   ├── terminal/           # Quake-style terminal: provider, panel and commands
-│   └── ui/                 # Reusable primitives (Section, Card, Window, Timeline, Backdrop, ...)
-├── config/site.ts          # Links, metadata and section anchors
+│   └── ui/                 # Reusable primitives (Section, Card, Window, Backdrop, LogoLoop, ...)
+├── config/                 # Site links/metadata, section anchors and brand/tech logos
 ├── hooks/                  # Shared hooks (pointer spotlight, tilt, loops while visible)
 ├── i18n/                   # Language provider and pt/en dictionaries
 └── lib/

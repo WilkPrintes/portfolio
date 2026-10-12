@@ -4,8 +4,8 @@ import { useRef } from "react";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Magnetic } from "@/components/ui/magnetic";
 import { Section } from "@/components/ui/section";
-import { SplitWords } from "@/components/ui/split-text";
-import { sectionIds, siteConfig } from "@/config/site";
+import { SplitChars } from "@/components/ui/split-text";
+import { sectionIds, siteConfig, whatsappUrl } from "@/config/site";
 import { useLanguage } from "@/i18n";
 import { DESKTOP, gsap, MOTION_OK, useGSAP } from "@/lib/gsap";
 import { CodeSnippet } from "./code-snippet";
@@ -25,7 +25,20 @@ export function Contact() {
         gsap
           .timeline({ scrollTrigger: { trigger: ref.current, start: "top 70%" } })
           .from("[data-contact-label]", { y: 12, autoAlpha: 0, duration: 0.5 })
-          .from("[data-word]", { yPercent: 110, stagger: 0.07, duration: 1, ease: "expo.out" }, "-=0.2")
+          .from(
+            "[data-char]",
+            {
+              yPercent: 120,
+              scaleY: 2.3,
+              scaleX: 0.7,
+              autoAlpha: 0,
+              transformOrigin: "50% 0%",
+              stagger: 0.03,
+              duration: 1,
+              ease: "back.out(1.7)",
+            },
+            "-=0.2",
+          )
           .from("[data-contact-text]", { y: 16, autoAlpha: 0, duration: 0.7 }, "-=0.6")
           .from("[data-contact-email]", { clipPath: "inset(0% 100% 0% 0%)", duration: 1, ease: "expo.inOut" }, "-=0.5")
           .from(
@@ -74,7 +87,7 @@ export function Contact() {
             {contact.index} <span className="text-muted">/ {t.nav.contact}</span>
           </p>
           <h2 className="mt-4 text-5xl font-semibold tracking-tight text-foreground sm:text-7xl">
-            <SplitWords text={contact.title} />
+            <SplitChars text={contact.title} />
           </h2>
           <p data-contact-text className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-foreground/80 lg:mx-0">
             {contact.text}
@@ -88,7 +101,12 @@ export function Contact() {
           </a>
           <div data-contact-actions className="mt-10 flex flex-wrap justify-center gap-4 lg:justify-start">
             <Magnetic>
-              <ButtonLink href={links.linkedin} external icon="↗">
+              <ButtonLink href={whatsappUrl(contact.whatsappMessage)} external icon="↗">
+                WhatsApp
+              </ButtonLink>
+            </Magnetic>
+            <Magnetic>
+              <ButtonLink href={links.linkedin} external variant="secondary" icon="↗">
                 LinkedIn
               </ButtonLink>
             </Magnetic>

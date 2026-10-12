@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { siteConfig } from "@/config/site";
+import { siteConfig, whatsappUrl } from "@/config/site";
 import type { Dictionary } from "@/i18n";
 
 const { links } = siteConfig;
@@ -49,6 +49,9 @@ const commands: Record<string, Command> = {
     <ul>
       <li>
         e-mail: <ExternalLink href={`mailto:${links.email}`}>{links.email}</ExternalLink>
+      </li>
+      <li>
+        whatsapp: <ExternalLink href={whatsappUrl()}>{links.phone}</ExternalLink>
       </li>
       <li>
         linkedin: <ExternalLink href={links.linkedin}>wilk-printes</ExternalLink>
