@@ -14,6 +14,12 @@ export const en: Dictionary = {
     greeting: "Hi, I'm",
     name: "Wilk Printes",
     role: "Front-end Engineer & Tech Lead",
+    roles: [
+      "Front-end Engineer & Tech Lead",
+      "React · TypeScript · Next.js",
+      "Technical leadership and mentoring",
+      "Interfaces with real-time data",
+    ],
     tagline:
       "I build web products with React, TypeScript and Next.js, and teams that ship with quality. I led the front-end of Kotaidex, a multi-chain decentralized exchange, from scratch to production.",
     ctaPrimary: "See experience",
@@ -82,6 +88,7 @@ export const en: Dictionary = {
     subtitle: "Where I've worked and what I've built",
     highlights: "Highlights",
     stack: "Stack",
+    progress: "Timeline",
     items: [
       {
         company: "Kotai",
@@ -236,6 +243,12 @@ export const en: Dictionary = {
     resume: "Download resume",
     codeComment: "// → next step: a conversation",
     location: "Santarém, PA · Brazil",
+    whatsappMessage: "Hi Wilk! I saw your portfolio and would like to talk.",
+  },
+  dock: {
+    label: "Quick contact",
+    whatsapp: "WhatsApp",
+    email: "Email",
   },
   footer: "Built with Next.js, TypeScript and GSAP",
   terminal: {

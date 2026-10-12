@@ -14,6 +14,12 @@ export const pt = {
     greeting: "Olá, eu sou",
     name: "Wilk Printes",
     role: "Engenheiro Front-end & Tech Lead",
+    roles: [
+      "Engenheiro Front-end & Tech Lead",
+      "React · TypeScript · Next.js",
+      "Liderança técnica e mentoria",
+      "Interfaces com dados em tempo real",
+    ],
     tagline:
       "Construo produtos web com React, TypeScript e Next.js, e times que entregam com qualidade. Liderei o front-end da Kotaidex, uma exchange descentralizada multi-chain, do zero até a produção.",
     ctaPrimary: "Ver experiência",
@@ -82,6 +88,7 @@ export const pt = {
     subtitle: "Onde trabalhei e o que construí",
     highlights: "Destaques",
     stack: "Stack",
+    progress: "Linha do tempo",
     items: [
       {
         company: "Kotai",
@@ -236,6 +243,12 @@ export const pt = {
     resume: "Baixar currículo",
     codeComment: "// → próximo passo: uma conversa",
     location: "Santarém, PA · Brasil",
+    whatsappMessage: "Olá, Wilk! Vi seu portfólio e gostaria de conversar.",
+  },
+  dock: {
+    label: "Contato rápido",
+    whatsapp: "WhatsApp",
+    email: "E-mail",
   },
   footer: "Feito com Next.js, TypeScript e GSAP",
   terminal: {

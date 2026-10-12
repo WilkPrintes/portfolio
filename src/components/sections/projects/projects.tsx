@@ -106,8 +106,6 @@ export function Projects() {
   return (
     <Section ref={sectionRef} id={sectionIds.projects} className="overflow-hidden py-0">
       <Backdrop>
-        <Backdrop.Blueprint />
-        <Backdrop.Glows />
         <Backdrop.Watermark>04</Backdrop.Watermark>
       </Backdrop>
 

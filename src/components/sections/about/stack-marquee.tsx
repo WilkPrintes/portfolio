@@ -1,45 +1,30 @@
 "use client";
 
-import { useRef } from "react";
-import { useLoopWhileVisible } from "@/hooks/use-loop-while-visible";
-import { gsap } from "@/lib/gsap";
-import { cn } from "@/lib/utils";
+import { LogoLoop, type LogoLoopItem } from "@/components/ui/logo-loop";
+import { techLogos } from "@/config/logos";
 
-/** Two oversized bands of technologies scrolling on their own, in opposite directions. */
-export function StackMarquee({ items }: { items: string[] }) {
-  const ref = useRef<HTMLDivElement>(null);
+const items: LogoLoopItem[] = techLogos.map(({ name, icon: Icon, color }) => ({
+  key: name,
+  label: name,
+  node: (
+    <span className="group flex items-center gap-3 rounded-xl border border-line bg-panel/70 px-4 py-3 transition-colors hover:border-accent/50">
+      <Icon
+        aria-hidden="true"
+        size={26}
+        color={color}
+        className="transition-transform duration-300 group-hover:scale-110"
+      />
+      <span className="font-mono text-sm text-foreground/80">{name}</span>
+    </span>
+  ),
+}));
 
-  useLoopWhileVisible(ref, () =>
-    gsap.utils
-      .toArray<HTMLElement>("[data-band]", ref.current)
-      .map((band, index) =>
-        gsap.fromTo(
-          band,
-          { xPercent: index % 2 ? -50 : 0 },
-          { xPercent: index % 2 ? 0 : -50, duration: 60, ease: "none", repeat: -1 },
-        ),
-      ),
-  );
-
+/** Infinite strip of technology logos (pauses on hover). */
+export function StackMarquee({ ariaLabel }: { ariaLabel: string }) {
   return (
-    <div ref={ref} aria-hidden="true" className="mb-10 space-y-2 overflow-hidden">
-      {[0, 1].map((band) => (
-        <div
-          key={band}
-          data-band
-          className={cn(
-            "flex w-max text-5xl font-semibold tracking-tight whitespace-nowrap sm:text-7xl",
-            band ? "text-transparent [-webkit-text-stroke:1px_rgb(255_176_0/0.5)]" : "text-foreground/10",
-          )}
-        >
-          {/* Duplicated content makes the -50% loop seamless. */}
-          {[...items, ...items].map((item, index) => (
-            <span key={index} className="pr-10">
-              {item}
-            </span>
-          ))}
-        </div>
-      ))}
+    <div className="mb-10 space-y-4">
+      <LogoLoop items={items} speed={50} hoverSpeed={0} gap={16} ariaLabel={ariaLabel} />
+      <LogoLoop items={[...items].reverse()} speed={-35} hoverSpeed={0} gap={16} ariaLabel={ariaLabel} />
     </div>
   );
 }

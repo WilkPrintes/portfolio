@@ -1,7 +1,10 @@
 "use client";
 
 import { useRef, type ComponentProps } from "react";
+import { BrandLogo } from "@/components/ui/brand-logo";
 import { Card } from "@/components/ui/card";
+import { Glare } from "@/components/ui/glare";
+import { projectLogos } from "@/config/logos";
 import { useTilt } from "@/hooks/use-tilt";
 import type { Project } from "@/i18n";
 import { cn, pad } from "@/lib/utils";
@@ -18,42 +21,56 @@ type ProjectCardProps = {
 export function ProjectCard({ project, index, total, labels }: ProjectCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   useTilt(ref);
+  const logo = projectLogos[project.name];
 
   return (
     <div ref={ref} data-project-card className={cn("flex", cardSize, "lg:w-[360px]")}>
-      <Card spotlight className="flex w-full flex-col bg-panel/85 backdrop-blur-sm hover:border-accent/60">
-        <Card.Header className="items-start">
-          <span className="ticks flex size-14 items-center justify-center border border-line font-mono text-base font-medium text-accent transition-colors group-hover:border-accent/60">
-            {project.badge}
-          </span>
-          <span className="font-mono text-xs text-muted">
-            {pad(index + 1)} / {pad(total)}
-          </span>
-        </Card.Header>
-        <Card.Eyebrow className="mt-5 text-accent-soft">{project.kind}</Card.Eyebrow>
-        <Card.Title className="mt-1">{project.name}</Card.Title>
-        <Card.Description className="flex-1">{project.description}</Card.Description>
-        <p className="relative mt-4 font-mono text-xs text-foreground/60">{project.stack.join(" · ")}</p>
-        <Card.Footer>
-          {project.url && (
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noreferrer"
-              className="font-medium text-accent hover:underline hover:underline-offset-4"
+      <Glare>
+        <Card spotlight className="flex w-full flex-col bg-panel/85 backdrop-blur-sm hover:border-accent/60">
+          <Card.Header className="items-start">
+            <span
+              data-project-logo
+              className="ticks flex h-14 min-w-14 items-center justify-center border border-line bg-ink/60 px-3 transition-colors group-hover:border-accent/60"
             >
-              {labels.live} ↗
-            </a>
-          )}
-          {project.repo ? (
-            <a href={project.repo} target="_blank" rel="noreferrer" className="text-foreground hover:text-accent">
-              {labels.code} ↗
-            </a>
-          ) : (
-            <span className="text-muted">{labels.private}</span>
-          )}
-        </Card.Footer>
-      </Card>
+              {logo ? (
+                <BrandLogo
+                  logo={logo}
+                  alt={project.name}
+                  size={logo.kind === "image" && logo.width > logo.height ? 24 : 32}
+                />
+              ) : (
+                <span className="font-mono text-base font-medium text-accent">{project.badge}</span>
+              )}
+            </span>
+            <span className="font-mono text-xs text-muted">
+              {pad(index + 1)} / {pad(total)}
+            </span>
+          </Card.Header>
+          <Card.Eyebrow className="mt-5 text-accent-soft">{project.kind}</Card.Eyebrow>
+          <Card.Title className="mt-1">{project.name}</Card.Title>
+          <Card.Description className="flex-1">{project.description}</Card.Description>
+          <p className="relative mt-4 font-mono text-xs text-foreground/60">{project.stack.join(" · ")}</p>
+          <Card.Footer>
+            {project.url && (
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noreferrer"
+                className="font-medium text-accent hover:underline hover:underline-offset-4"
+              >
+                {labels.live} ↗
+              </a>
+            )}
+            {project.repo ? (
+              <a href={project.repo} target="_blank" rel="noreferrer" className="text-foreground hover:text-accent">
+                {labels.code} ↗
+              </a>
+            ) : (
+              <span className="text-muted">{labels.private}</span>
+            )}
+          </Card.Footer>
+        </Card>
+      </Glare>
     </div>
   );
 }

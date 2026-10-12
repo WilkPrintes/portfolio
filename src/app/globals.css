@@ -29,11 +29,6 @@
 
 body {
   background-color: var(--background);
-  /* Subtle drafting-table grid. */
-  background-image:
-    linear-gradient(rgb(255 255 255 / 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(255 255 255 / 0.025) 1px, transparent 1px);
-  background-size: 64px 64px;
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }

@@ -7,6 +7,9 @@ export const siteConfig = {
     github: "https://github.com/WilkPrintes",
     linkedin: "https://www.linkedin.com/in/wilk-printes/",
     email: "wilkstudy01@gmail.com",
+    /** International format, digits only (used to build wa.me links). */
+    whatsapp: "5593992387398",
+    phone: "+55 93 99238-7398",
     /** Path inside /public. Set to an empty string to hide the download button. */
     resume: "",
   },
@@ -23,3 +26,8 @@ export const sectionIds = {
 } as const;
 
 export type SectionKey = keyof typeof sectionIds;
+
+export function whatsappUrl(message?: string) {
+  const base = `https://wa.me/${siteConfig.links.whatsapp}`;
+  return message ? `${base}?text=${encodeURIComponent(message)}` : base;
+}
