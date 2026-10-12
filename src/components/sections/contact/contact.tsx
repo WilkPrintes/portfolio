@@ -10,7 +10,6 @@ import { sectionIds, siteConfig, whatsappUrl } from "@/config/site";
 import { useLanguage } from "@/i18n";
 import { DESKTOP, gsap, MOTION_OK, useGSAP } from "@/lib/gsap";
 import { CodeSnippet } from "./code-snippet";
-import { ContactBackground } from "./contact-background";
 
 const { links } = siteConfig;
 const { whatsapp: WhatsappIcon, linkedin: LinkedinIcon, github: GithubIcon } = contactIcons;
@@ -81,8 +80,6 @@ export function Contact() {
       id={sectionIds.contact}
       className="overflow-hidden border-t border-line px-4 py-32 sm:px-6 lg:py-40"
     >
-      <ContactBackground />
-
       <div
         data-contact-card
         className="relative mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)] items-center gap-14 rounded-2xl border border-line bg-panel p-6 shadow-2xl shadow-black/60 sm:p-10 lg:grid-cols-[1.1fr_1fr] lg:p-14"

@@ -5,7 +5,7 @@ import { gsap, MOTION_OK, useGSAP } from "@/lib/gsap";
 import { cn } from "@/lib/utils";
 import { SplitChars } from "./split-text";
 
-/** Page section. Children can include a `<Backdrop />`, which sits behind the content. */
+/** Page section with consistent spacing and an anchor offset for the fixed header. */
 function SectionRoot({ className, ...props }: ComponentProps<"section">) {
   return <section className={cn("relative isolate scroll-mt-20 py-28", className)} {...props} />;
 }

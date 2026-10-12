@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Backdrop } from "@/components/ui/backdrop";
 import { Section } from "@/components/ui/section";
 import { sectionIds } from "@/config/site";
 import { useLanguage } from "@/i18n";
@@ -82,10 +81,6 @@ export function Experience() {
 
   return (
     <Section id={sectionIds.experience}>
-      <Backdrop>
-        <Backdrop.Watermark side="left">02</Backdrop.Watermark>
-      </Backdrop>
-
       <Section.Container ref={ref}>
         <Section.Header title={experience.title} />
 
