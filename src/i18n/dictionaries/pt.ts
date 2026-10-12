@@ -233,7 +233,17 @@ export const pt = {
     text: "Estou aberto a oportunidades como engenheiro front-end ou tech lead. Se quiser falar sobre um projeto, um time ou uma vaga, é só me chamar.",
     resume: "Baixar currículo",
     codeComment: "// → próximo passo: uma conversa",
-    location: "Santarém, PA · Brasil",
+    location: "Brasil",
+    localTime: "hora local",
+    primary: "Mais direto",
+    copy: "Copiar",
+    copied: "Copiado!",
+    channels: {
+      whatsapp: "WhatsApp",
+      email: "E-mail",
+      linkedin: "LinkedIn",
+      github: "GitHub",
+    },
     whatsappMessage: "Olá, Wilk! Vi seu portfólio e gostaria de conversar.",
   },
   dock: {

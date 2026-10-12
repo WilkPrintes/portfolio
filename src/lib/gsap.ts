@@ -21,3 +21,28 @@ export function prefersReducedMotion() {
 }
 
 export { gsap, ScrollTrigger, useGSAP };
+
+/**
+ * Smoothly scrolls the window with GSAP. CSS `scroll-behavior: smooth` is disabled while the
+ * tween runs; otherwise every frame starts a native smooth scroll and the two fight each other.
+ */
+export function scrollToTarget(target: number | Element, offsetY = 0) {
+  const root = document.documentElement;
+  const previous = root.style.scrollBehavior;
+
+  return gsap.to(window, {
+    scrollTo: { y: target, offsetY },
+    duration: prefersReducedMotion() ? 0 : 1.2,
+    ease: "expo.inOut",
+    overwrite: true,
+    onStart: () => {
+      root.style.scrollBehavior = "auto";
+    },
+    onComplete: () => {
+      root.style.scrollBehavior = previous;
+    },
+    onInterrupt: () => {
+      root.style.scrollBehavior = previous;
+    },
+  });
+}

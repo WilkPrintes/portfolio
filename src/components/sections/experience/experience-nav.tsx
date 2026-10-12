@@ -3,7 +3,7 @@
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { companyLogos } from "@/config/logos";
 import type { Job } from "@/i18n";
-import { gsap, prefersReducedMotion } from "@/lib/gsap";
+import { scrollToTarget } from "@/lib/gsap";
 import { cn } from "@/lib/utils";
 
 type ExperienceNavProps = {
@@ -17,11 +17,7 @@ export function ExperienceNav({ jobs, activeIndex, label }: ExperienceNavProps) 
   const goTo = (index: number) => {
     const target = document.querySelector(`[data-experience-item="${index}"]`);
     if (!target) return;
-    gsap.to(window, {
-      scrollTo: { y: target, offsetY: 120 },
-      duration: prefersReducedMotion() ? 0 : 1,
-      ease: "power3.inOut",
-    });
+    scrollToTarget(target, 120);
   };
 
   return (

@@ -233,7 +233,17 @@ export const en: Dictionary = {
     text: "I'm open to opportunities as a front-end engineer or tech lead. If you want to talk about a project, a team or a role, just reach out.",
     resume: "Download resume",
     codeComment: "// → next step: a conversation",
-    location: "Santarém, PA · Brazil",
+    location: "Brazil",
+    localTime: "local time",
+    primary: "Most direct",
+    copy: "Copy",
+    copied: "Copied!",
+    channels: {
+      whatsapp: "WhatsApp",
+      email: "Email",
+      linkedin: "LinkedIn",
+      github: "GitHub",
+    },
     whatsappMessage: "Hi Wilk! I saw your portfolio and would like to talk.",
   },
   dock: {

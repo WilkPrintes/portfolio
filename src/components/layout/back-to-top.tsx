@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { useLanguage } from "@/i18n";
-import { gsap, prefersReducedMotion, ScrollTrigger, useGSAP } from "@/lib/gsap";
+import { gsap, prefersReducedMotion, scrollToTarget, ScrollTrigger, useGSAP } from "@/lib/gsap";
 
 const RADIUS = 20;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
@@ -48,7 +48,7 @@ export function BackToTop() {
   );
 
   const scrollToTop = () => {
-    gsap.to(window, { scrollTo: 0, duration: prefersReducedMotion() ? 0 : 1.2, ease: "expo.inOut" });
+    scrollToTarget(0);
     gsap.fromTo("[data-arrow]", { y: 0 }, { y: -6, duration: 0.2, yoyo: true, repeat: 1, ease: "power2.out" });
   };
 
