@@ -95,8 +95,8 @@ export function Experience() {
                 key={job.company}
                 data-experience-item={index}
                 className={cn(
-                  "transition-[opacity,scale] duration-500",
-                  index === activeIndex ? "lg:opacity-100" : "lg:scale-[0.98] lg:opacity-40",
+                  "transition-[filter,scale] duration-500",
+                  index === activeIndex ? "lg:brightness-100" : "lg:scale-[0.98] lg:brightness-[0.45] lg:saturate-50",
                 )}
               >
                 <JobCard job={job} highlightsLabel={experience.highlights} stackLabel={experience.stack} />

@@ -40,10 +40,8 @@ export function ExperienceNav({ jobs, activeIndex, label }: ExperienceNavProps) 
                   onClick={() => goTo(index)}
                   aria-current={isActive ? "step" : undefined}
                   className={cn(
-                    "flex w-full items-center gap-3 rounded-lg border p-3 text-left transition-all duration-500",
-                    isActive
-                      ? "border-accent/40 bg-panel/90 opacity-100"
-                      : "border-transparent opacity-55 hover:opacity-90",
+                    "flex w-full items-center gap-3 rounded-lg border p-3 text-left transition-[border-color,filter] duration-500",
+                    isActive ? "border-accent/40 bg-card" : "border-line bg-card brightness-[0.6] hover:brightness-90",
                   )}
                 >
                   {logo && (

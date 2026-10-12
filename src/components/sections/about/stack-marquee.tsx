@@ -7,7 +7,7 @@ const items: LogoLoopItem[] = techLogos.map(({ name, icon: Icon, color }) => ({
   key: name,
   label: name,
   node: (
-    <span className="group flex items-center gap-3 rounded-xl border border-line bg-panel/70 px-4 py-3 transition-colors hover:border-accent/50">
+    <span className="group flex items-center gap-3 rounded-xl border border-line bg-card px-4 py-3 transition-colors hover:border-accent/50">
       <Icon
         aria-hidden="true"
         size={26}

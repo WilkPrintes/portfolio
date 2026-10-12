@@ -41,7 +41,7 @@ export function ProfileCard({ rows }: { rows: ProfileRow[] }) {
 
   return (
     <div ref={ref} className="self-start">
-      <dl data-profile className="ticks border border-line bg-panel/80 p-6">
+      <dl data-profile className="ticks border border-line bg-card p-6">
         {rows.map((row) => (
           <div
             key={row.label}

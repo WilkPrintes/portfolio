@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Tag, TagList } from "@/components/ui/tag";
-import { cn, pad } from "@/lib/utils";
+import { pad } from "@/lib/utils";
 
 type StackCardProps = {
   index: number;
@@ -12,7 +12,7 @@ type StackCardProps = {
 
 export function StackCard({ index, group, items, itemsLabel, className }: StackCardProps) {
   return (
-    <Card data-stack-card spotlight className={cn("bg-panel/70", className)}>
+    <Card data-stack-card spotlight className={className}>
       <span
         aria-hidden="true"
         data-stack-scan

@@ -27,11 +27,11 @@ export function ProjectCard({ project, index, total, labels }: ProjectCardProps)
   return (
     <div ref={ref} data-project-card className={cn("flex", cardSize, "lg:w-[360px]")}>
       <Glare>
-        <Card spotlight className="flex w-full flex-col bg-panel/85 backdrop-blur-sm hover:border-accent/60">
+        <Card spotlight className="flex w-full flex-col hover:border-accent/60">
           <Card.Header className="items-start">
             <span
               data-project-logo
-              className="ticks flex h-14 min-w-14 items-center justify-center border border-line bg-ink/60 px-3 transition-colors group-hover:border-accent/60"
+              className="ticks flex h-14 min-w-14 items-center justify-center border border-line bg-ink px-3 transition-colors group-hover:border-accent/60"
             >
               {logo ? (
                 <BrandLogo
@@ -84,7 +84,7 @@ export function ProjectsMoreCard({ className, ...props }: ComponentProps<"a">) {
       target="_blank"
       rel="noreferrer"
       className={cn(
-        "flex items-center justify-center border border-dashed border-line bg-panel/40 p-7 text-center font-mono text-sm text-muted transition-colors hover:border-accent hover:text-accent lg:w-[240px]",
+        "flex items-center justify-center border border-dashed border-line bg-card p-7 text-center font-mono text-sm text-muted transition-colors hover:border-accent hover:text-accent lg:w-[240px]",
         cardSize,
         className,
       )}
