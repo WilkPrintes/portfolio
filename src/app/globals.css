@@ -21,6 +21,8 @@
   --color-ok: #5ee08a;
   --color-ink: #0c0c0d;
   --color-panel: #141416;
+  /* Opaque card surface: keeps the maze lines from showing through text. */
+  --color-card: #0f0f11;
   --color-line: #28282d;
   /* Text hierarchy: foreground for headings, secondary for body copy, muted for metadata. */
   --color-secondary: #b4b4bd;

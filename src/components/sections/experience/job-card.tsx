@@ -46,7 +46,7 @@ function JobHeader({ job }: { job: Job }) {
 export function JobCard({ job, highlightsLabel, stackLabel }: JobCardProps) {
   return (
     <Glare>
-      <Card data-job-card featured={job.featured} spotlight className={cn("sm:p-8", !job.featured && "bg-panel/50")}>
+      <Card data-job-card featured={job.featured} spotlight className="sm:p-8">
         <JobHeader job={job} />
 
         <Card.Title className={cn("mt-6", job.featured && "sm:text-3xl")}>{job.role}</Card.Title>

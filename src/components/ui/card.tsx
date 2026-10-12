@@ -21,7 +21,7 @@ function CardRoot({ featured, spotlight, className, children, ...props }: CardPr
       ref={ref}
       className={cn(
         "group relative overflow-hidden border p-6 transition-colors",
-        featured ? "ticks border-accent/40 bg-panel/80" : "border-line bg-panel/60",
+        featured ? "ticks border-accent/40 bg-card" : "border-line bg-card",
         spotlight && "hover:border-accent/50",
         className,
       )}
