@@ -1,4 +1,4 @@
-# wilk.dev
+# wilkprintes.dev
 
 Personal portfolio of **Wilk Printes** — front-end engineer and tech lead.
 

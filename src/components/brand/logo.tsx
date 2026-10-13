@@ -77,7 +77,7 @@ export function Logo() {
         <rect data-logo-cursor className="blink" x="43" y="45" width="7" height="3.5" fill="#ececee" />
       </svg>
       <span data-logo-text className="font-mono text-sm font-medium text-foreground">
-        wilk<span className="text-accent">.</span>dev
+        wilkprintes<span className="text-accent">.</span>dev
       </span>
     </a>
   );
