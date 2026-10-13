@@ -31,7 +31,6 @@ export function Hero() {
           .from("[data-hero-greeting]", { y: 16, autoAlpha: 0, duration: 0.7 }, 0.3)
           .from("[data-hero-name] [data-char]", { yPercent: 110, autoAlpha: 0, stagger: 0.03, duration: 1 }, 0.4)
           .from("[data-hero-role]", { autoAlpha: 0, x: -10, duration: 0.6 }, 0.9)
-          .from("[data-hero-tagline]", { y: 20, autoAlpha: 0, duration: 0.9 }, 1.1)
           .from("[data-hero-cta] > *", { y: 16, autoAlpha: 0, stagger: 0.1, duration: 0.8 }, 1.25)
           .from(
             "[data-hero-debug]",
@@ -89,7 +88,8 @@ export function Hero() {
               cursorClassName="text-accent"
             />
           </p>
-          <p data-hero-tagline className="mt-6 max-w-xl text-lg leading-relaxed text-secondary">
+          {/* Visible from the server render: it is the LCP element, so it must not wait for the intro. */}
+          <p data-hero-tagline className="visible mt-6 max-w-xl text-lg leading-relaxed text-secondary">
             {t.hero.tagline}
           </p>
           <div data-hero-cta className="mt-10 flex flex-wrap items-center gap-5">
