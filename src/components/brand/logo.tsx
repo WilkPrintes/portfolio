@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { sectionIds, siteConfig } from "@/config/site";
+import { sectionIds } from "@/config/site";
 import { gsap, MOTION_OK, useGSAP } from "@/lib/gsap";
 
 // Corner ticks and the direction each one opens on hover.
@@ -47,7 +47,7 @@ export function Logo() {
   );
 
   return (
-    <a ref={ref} href={`#${sectionIds.hero}`} aria-label={siteConfig.name} className="group flex items-center gap-2.5">
+    <a ref={ref} href={`#${sectionIds.hero}`} className="group flex items-center gap-2.5">
       <svg viewBox="0 0 64 64" aria-hidden="true" className="h-8 w-8 overflow-visible">
         {TICKS.map((tick) => (
           <path
@@ -77,7 +77,7 @@ export function Logo() {
         <rect data-logo-cursor className="blink" x="43" y="45" width="7" height="3.5" fill="#ececee" />
       </svg>
       <span data-logo-text className="font-mono text-sm font-medium text-foreground">
-        wilk<span className="text-accent">.</span>dev
+        wilkprintes<span className="text-accent">.</span>dev
       </span>
     </a>
   );
