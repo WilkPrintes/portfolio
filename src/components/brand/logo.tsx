@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { sectionIds, siteConfig } from "@/config/site";
+import { sectionIds } from "@/config/site";
 import { gsap, MOTION_OK, useGSAP } from "@/lib/gsap";
 
 // Corner ticks and the direction each one opens on hover.
@@ -47,7 +47,7 @@ export function Logo() {
   );
 
   return (
-    <a ref={ref} href={`#${sectionIds.hero}`} aria-label={siteConfig.name} className="group flex items-center gap-2.5">
+    <a ref={ref} href={`#${sectionIds.hero}`} className="group flex items-center gap-2.5">
       <svg viewBox="0 0 64 64" aria-hidden="true" className="h-8 w-8 overflow-visible">
         {TICKS.map((tick) => (
           <path

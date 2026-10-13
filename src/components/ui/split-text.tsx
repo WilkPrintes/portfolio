@@ -7,7 +7,8 @@ export function SplitChars({ text, className }: { text: string; className?: stri
   const words = text.split(" ");
 
   return (
-    <span aria-label={text} className={className}>
+    <span className={className}>
+      <span className="sr-only">{text}</span>
       {words.map((word, wordIndex) => (
         <span key={wordIndex} aria-hidden="true" className="inline-block whitespace-nowrap">
           {Array.from(word).map((char, charIndex) => (
@@ -26,7 +27,8 @@ export function SplitWords({ text, className }: { text: string; className?: stri
   const words = text.split(" ");
 
   return (
-    <span aria-label={text} className={className}>
+    <span className={className}>
+      <span className="sr-only">{text}</span>
       {words.map((word, index) => (
         <span key={index} aria-hidden="true" className="inline-block overflow-hidden pb-1 align-bottom">
           <span data-word className="inline-block will-change-transform">

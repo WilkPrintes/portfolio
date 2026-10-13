@@ -70,9 +70,9 @@ export function Hero() {
           </h1>
           <p
             data-hero-role
-            aria-label={t.hero.role}
             className="mt-5 min-h-[1.5em] font-mono text-[15px] whitespace-nowrap text-accent-soft sm:text-2xl"
           >
+            <span className="sr-only">{t.hero.role}</span>
             <span aria-hidden="true" className="text-muted">
               &gt;{" "}
             </span>

@@ -31,7 +31,8 @@ export function Bio({ paragraphs }: { paragraphs: string[] }) {
   return (
     <div ref={ref} className="space-y-5 text-xl leading-relaxed text-foreground sm:text-2xl sm:leading-relaxed">
       {paragraphs.map((paragraph) => (
-        <p key={paragraph} data-paragraph aria-label={paragraph}>
+        <p key={paragraph} data-paragraph>
+          <span className="sr-only">{paragraph}</span>
           {paragraph.split(" ").map((word, index) => (
             <span key={index} data-bio-word aria-hidden="true">
               {word}{" "}
