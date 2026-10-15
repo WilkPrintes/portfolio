@@ -202,12 +202,13 @@ export const en: Dictionary = {
         url: "https://zenbytes.com.br",
       },
       {
-        name: "F1 Next Race",
-        badge: "F1",
+        name: "God of War III for PC",
+        badge: "PS4",
         kind: "Personal project",
-        description: "Countdown to the next Formula 1 race, with the season calendar.",
-        stack: ["Next.js", "TypeScript"],
-        repo: "https://github.com/WilkPrintes/F1-Next-Race",
+        description:
+          "Download landing page for the native PC port of God of War III Remastered. It always shows the latest release through the GitHub API and comes in Portuguese, English and Spanish.",
+        stack: ["Next.js", "Tailwind", "shadcn/ui", "GSAP"],
+        repo: "https://github.com/WilkPrintes/gow3-pc-landing",
       },
       {
         name: "Spotify Clone",

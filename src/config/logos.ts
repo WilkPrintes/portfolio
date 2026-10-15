@@ -9,7 +9,6 @@ import {
   SiDocker,
   SiEthereum,
   SiEthers,
-  SiF1,
   SiGit,
   SiGithub,
   SiGmail,
@@ -48,7 +47,8 @@ export const projectLogos: Record<string, Logo> = {
   Kotaidex: image("/logos/kotaidex-wordmark.webp", 420, 96),
   "Kotai Project": image("/logos/kotai.webp", 256, 256),
   Zenbroker: image("/logos/zenbytes.webp", 236, 236),
-  "F1 Next Race": icon(SiF1, "#e10600"),
+  "God of War III para PC": image("/logos/gow3.webp", 128, 128),
+  "God of War III for PC": image("/logos/gow3.webp", 128, 128),
   "Spotify Clone": icon(SiSpotify, "#1ed760"),
   cub3D: icon(Si42, "#ececee"),
 };
