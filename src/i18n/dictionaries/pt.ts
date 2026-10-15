@@ -202,12 +202,13 @@ export const pt = {
         url: "https://zenbytes.com.br",
       },
       {
-        name: "F1 Next Race",
-        badge: "F1",
+        name: "God of War III para PC",
+        badge: "PS4",
         kind: "Projeto pessoal",
-        description: "Contagem regressiva para a próxima corrida da Fórmula 1, com o calendário da temporada.",
-        stack: ["Next.js", "TypeScript"],
-        repo: "https://github.com/WilkPrintes/F1-Next-Race",
+        description:
+          "Landing page de download do port nativo de God of War III Remastered para PC. Mostra sempre a versão mais recente pela API do GitHub e está em português, inglês e espanhol.",
+        stack: ["Next.js", "Tailwind", "shadcn/ui", "GSAP"],
+        repo: "https://github.com/WilkPrintes/gow3-pc-landing",
       },
       {
         name: "Spotify Clone",
