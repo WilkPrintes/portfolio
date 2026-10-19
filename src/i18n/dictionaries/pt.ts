@@ -204,7 +204,7 @@ export const pt = {
       {
         name: "SpartanPort",
         badge: "PS4",
-        kind: "Projeto pessoal",
+        kind: "Landing Page",
         description:
           "Landing page de download do SpartanPort, port nativo e não oficial de um jogo de PS4 para PC. Mostra sempre a versão mais recente pela API do GitHub e está em português, inglês e espanhol.",
         stack: ["Next.js", "Tailwind", "shadcn/ui", "GSAP"],
