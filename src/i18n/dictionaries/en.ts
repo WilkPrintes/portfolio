@@ -202,13 +202,13 @@ export const en: Dictionary = {
         url: "https://zenbytes.com.br",
       },
       {
-        name: "God of War III for PC",
+        name: "SpartanPort",
         badge: "PS4",
         kind: "Personal project",
         description:
-          "Download landing page for the native PC port of God of War III Remastered. It always shows the latest release through the GitHub API and comes in Portuguese, English and Spanish.",
+          "Download landing page for SpartanPort, an unofficial native PC port of a PS4 game. It always shows the latest release through the GitHub API and comes in Portuguese, English and Spanish.",
         stack: ["Next.js", "Tailwind", "shadcn/ui", "GSAP"],
-        repo: "https://github.com/WilkPrintes/gow3-pc-landing",
+        repo: "https://github.com/WilkPrintes/spartanport-landing",
       },
       {
         name: "Spotify Clone",
