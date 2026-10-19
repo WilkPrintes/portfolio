@@ -202,13 +202,13 @@ export const pt = {
         url: "https://zenbytes.com.br",
       },
       {
-        name: "God of War III para PC",
+        name: "SpartanPort",
         badge: "PS4",
         kind: "Projeto pessoal",
         description:
-          "Landing page de download do port nativo de God of War III Remastered para PC. Mostra sempre a versão mais recente pela API do GitHub e está em português, inglês e espanhol.",
+          "Landing page de download do SpartanPort, port nativo e não oficial de um jogo de PS4 para PC. Mostra sempre a versão mais recente pela API do GitHub e está em português, inglês e espanhol.",
         stack: ["Next.js", "Tailwind", "shadcn/ui", "GSAP"],
-        repo: "https://github.com/WilkPrintes/gow3-pc-landing",
+        repo: "https://github.com/WilkPrintes/spartanport-landing",
       },
       {
         name: "Spotify Clone",
