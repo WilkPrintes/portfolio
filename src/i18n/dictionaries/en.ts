@@ -204,7 +204,7 @@ export const en: Dictionary = {
       {
         name: "SpartanPort",
         badge: "PS4",
-        kind: "Personal project",
+        kind: "Landing Page",
         description:
           "Download landing page for SpartanPort, an unofficial native PC port of a PS4 game. It always shows the latest release through the GitHub API and comes in Portuguese, English and Spanish.",
         stack: ["Next.js", "Tailwind", "shadcn/ui", "GSAP"],
