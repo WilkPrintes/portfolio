@@ -170,7 +170,7 @@ export const pt = {
   projects: {
     title: "Projetos",
     live: "Ver online",
-    code: "Código",
+    code: "Código público",
     private: "Código privado",
     seeAll: "Ver todos no GitHub",
     scrollHint: "Role para navegar pelos projetos",
@@ -208,6 +208,7 @@ export const pt = {
         description:
           "Landing page de download do SpartanPort, port nativo e não oficial de um jogo de PS4 para PC. Mostra sempre a versão mais recente pela API do GitHub e está em português, inglês e espanhol.",
         stack: ["Next.js", "Tailwind", "shadcn/ui", "GSAP"],
+        url: "https://spartanport.com",
         repo: "https://github.com/WilkPrintes/spartanport-landing",
       },
       {
