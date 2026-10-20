@@ -139,7 +139,7 @@ export const pt = {
     items: [
       {
         place: "42 São Paulo",
-        title: "Engenharia de Software",
+        title: "Programa de Engenharia de Software (42 Cursus)",
         period: "2021 — 2024",
         start: 2021,
         end: 2024,
@@ -256,6 +256,7 @@ export const pt = {
   footer: "Feito com Next.js, TypeScript e GSAP",
   terminal: {
     title: "terminal",
+    close: "Fechar terminal",
     hint: "pressione ~ para abrir ou fechar · digite help",
     welcome: "Digite help para ver os comandos.",
     notFound: "comando não encontrado",

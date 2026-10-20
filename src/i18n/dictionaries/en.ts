@@ -139,7 +139,7 @@ export const en: Dictionary = {
     items: [
       {
         place: "42 São Paulo",
-        title: "Software Engineering Program",
+        title: "Software Engineering Program (42 Cursus)",
         period: "2021 — 2024",
         start: 2021,
         end: 2024,
@@ -256,6 +256,7 @@ export const en: Dictionary = {
   footer: "Built with Next.js, TypeScript and GSAP",
   terminal: {
     title: "terminal",
+    close: "Close terminal",
     hint: "press ~ to open or close · type help",
     welcome: "Type help to see the commands.",
     notFound: "command not found",

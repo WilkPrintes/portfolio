@@ -23,10 +23,18 @@ export function Terminal() {
   const panelRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const outputRef = useRef<HTMLDivElement>(null);
+  const returnFocusRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const panel = panelRef.current;
     if (!panel) return;
+
+    if (isOpen) {
+      returnFocusRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    } else if (panel.contains(document.activeElement) || document.activeElement === document.body) {
+      // `inert` may already have blurred the input to <body> by the time this runs.
+      returnFocusRef.current?.focus({ preventScroll: true });
+    }
 
     gsap.to(panel, {
       yPercent: isOpen ? 0 : -105,
@@ -101,6 +109,7 @@ export function Terminal() {
       role="dialog"
       aria-label={t.terminal.title}
       aria-hidden={!isOpen}
+      inert={!isOpen}
       style={{ visibility: "hidden" }}
       className="fixed inset-x-0 top-0 z-80 h-[55svh] shadow-2xl"
       onClick={() => inputRef.current?.focus({ preventScroll: true })}
@@ -109,7 +118,7 @@ export function Terminal() {
         <Window.Bar className="py-2.5">
           <Window.Title>{t.terminal.title}</Window.Title>
           <span className="ml-auto hidden sm:inline">{t.terminal.hint}</span>
-          <button type="button" onClick={close} className="ml-3 px-1 hover:text-accent" aria-label="Close">
+          <button type="button" onClick={close} className="ml-3 px-1 hover:text-accent" aria-label={t.terminal.close}>
             ✕
           </button>
         </Window.Bar>

@@ -16,14 +16,16 @@ export function TechStack({ items, label, className }: TechStackProps) {
         return (
           <li key={name} data-tech-icon title={name} className="group/tech relative">
             {Icon ? (
-              <Icon
-                aria-hidden="true"
-                className="size-5 text-foreground opacity-45 transition-opacity duration-200 group-hover/tech:opacity-100"
-              />
+              <>
+                <Icon
+                  aria-hidden="true"
+                  className="size-5 text-foreground opacity-45 transition-opacity duration-200 group-hover/tech:opacity-100"
+                />
+                <span className="sr-only">{name}</span>
+              </>
             ) : (
               <span className="font-mono text-xs text-muted">{name}</span>
             )}
-            <span className="sr-only">{name}</span>
           </li>
         );
       })}

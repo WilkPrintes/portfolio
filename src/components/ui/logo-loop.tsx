@@ -22,7 +22,8 @@ type LogoLoopProps = {
   /** Speed while hovered (0 pauses). */
   hoverSpeed?: number;
   gap?: number;
-  ariaLabel: string;
+  /** Omit to hide the loop from assistive tech (e.g. a decorative copy of another loop). */
+  ariaLabel?: string;
   className?: string;
 };
 
@@ -91,8 +92,9 @@ export function LogoLoop({ items, speed = 60, hoverSpeed = 15, gap = 48, ariaLab
   return (
     <div
       ref={containerRef}
-      role="region"
+      role={ariaLabel ? "region" : undefined}
       aria-label={ariaLabel}
+      aria-hidden={ariaLabel ? undefined : true}
       className={cn("relative overflow-x-hidden", className)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
