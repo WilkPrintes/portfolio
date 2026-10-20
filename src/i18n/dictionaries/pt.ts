@@ -122,7 +122,7 @@ export const pt = {
       {
         company: "Robert Bosch GmbH",
         role: "Engenheiro de Software",
-        period: "2023 · 5 meses",
+        period: "2023 · 6 meses",
         summary: "Novas funcionalidades de produto em React e TypeScript.",
         highlights: [
           "Desenvolvi funcionalidades com foco em design de interface e experiência do usuário.",

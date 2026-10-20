@@ -122,7 +122,7 @@ export const en: Dictionary = {
       {
         company: "Robert Bosch GmbH",
         role: "Software Engineer",
-        period: "2023 · 5 months",
+        period: "2023 · 6 months",
         summary: "New product features in React and TypeScript.",
         highlights: [
           "Developed features with a focus on interface design and user experience.",
