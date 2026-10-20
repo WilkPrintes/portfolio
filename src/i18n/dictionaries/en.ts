@@ -170,7 +170,7 @@ export const en: Dictionary = {
   projects: {
     title: "Projects",
     live: "View live",
-    code: "Code",
+    code: "Public code",
     private: "Private code",
     seeAll: "See all on GitHub",
     scrollHint: "Scroll to browse the projects",
@@ -208,6 +208,7 @@ export const en: Dictionary = {
         description:
           "Download landing page for SpartanPort, an unofficial native PC port of a PS4 game. It always shows the latest release through the GitHub API and comes in Portuguese, English and Spanish.",
         stack: ["Next.js", "Tailwind", "shadcn/ui", "GSAP"],
+        url: "https://spartanport.com",
         repo: "https://github.com/WilkPrintes/spartanport-landing",
       },
       {
