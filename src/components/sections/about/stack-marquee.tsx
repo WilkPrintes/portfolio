@@ -24,7 +24,7 @@ export function StackMarquee({ ariaLabel }: { ariaLabel: string }) {
   return (
     <div className="mb-10 space-y-4">
       <LogoLoop items={items} speed={50} hoverSpeed={0} gap={16} ariaLabel={ariaLabel} />
-      <LogoLoop items={[...items].reverse()} speed={-35} hoverSpeed={0} gap={16} ariaLabel={ariaLabel} />
+      <LogoLoop items={[...items].reverse()} speed={-35} hoverSpeed={0} gap={16} />
     </div>
   );
 }
